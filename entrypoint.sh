@@ -12,6 +12,9 @@ make-cosmosis-feedstock-pr () {
     # clone the cosmosis feedstock
     git clone https://github.com/joezuntz/cosmosis-feedstock
     cd cosmosis-feedstock
+    # make sure we are up-to-date with the origin
+    git remote add forge https://github.com/conda-forge/cosmosis-feedstock
+    git pull forge master
 
     # create new branch
     git checkout -b $version
