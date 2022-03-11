@@ -1,0 +1,25 @@
+# action.yml
+name: 'Make Feedstock PR'
+description: 'Update conda forge feedstocks and make a PR for them'
+inputs:
+  which-repository:  # id of input
+    description: 'Which repository, cosmosis or csl'
+    required: true
+  token:  # id of input
+    description: 'Github token'
+    required: true
+  version:  # id of input
+    description: 'Version number'
+    required: true
+  hash:  # id of input
+    description: 'Expected hash of the new version'
+    required: true
+outputs: {}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.which-repository }}
+    - ${{ inputs.token }}
+    - ${{ inputs.version }}
+    - ${{ inputs.hash }}

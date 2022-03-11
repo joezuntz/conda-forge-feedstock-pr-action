@@ -1,2 +1,2 @@
 # cosmosis-action
-Github action for cosmosis release
+Github action for cosmosis feedstock PR creation
