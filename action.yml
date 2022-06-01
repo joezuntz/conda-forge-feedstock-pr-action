@@ -20,7 +20,7 @@ inputs:
   email_address: 
     description: 'Email address to use for the commit'
     required: true
-  main_branch: 
+  branch_name: 
     description: 'Name of the branch to which to push'
     required: false
     default: "main"
@@ -36,5 +36,4 @@ runs:
     - ${{ inputs.hash }}
     - ${{ inputs.fork_owner }}
     - ${{ inputs.email_address }}
-    - ${{ inputs.fork_owner }}
-    - ${{ inputs.main_branch }}
+    - ${{ inputs.branch_name }}
