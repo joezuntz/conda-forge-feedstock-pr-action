@@ -1,25 +1,40 @@
 # action.yml
-name: 'Make Feedstock PR'
-description: 'Update conda forge feedstocks and make a PR for them'
+name: 'Conda Forge Feedstock PR'
+description: 'Update conda forge feedstock forks and make a PR for them'
 inputs:
-  which-repository:  # id of input
-    description: 'Which repository, cosmosis or csl'
+  feedstock_name:
+    description: 'Base name of feedstock (and usually the project)'
     required: true
-  token:  # id of input
-    description: 'Github token'
+  token:
+    description: 'Github token that has permission to create github PR on repo'
     required: true
-  version:  # id of input
-    description: 'Version number'
+  version:
+    description: 'Version number of project, as it us used in conda forge meta.yaml'
     required: true
-  hash:  # id of input
-    description: 'Expected hash of the new version'
+  hash:
+    description: 'Expected SHA256 hash of the new version'
     required: true
+  fork_owner:
+    description: 'Github user name of the owner of the feedstock fork'
+    required: true
+  email_address: 
+    description: 'Email address to use for the commit'
+    required: true
+  main_branch: 
+    description: 'Name of the branch to which to push'
+    required: false
+    default: "main"
+
 outputs: {}
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.which-repository }}
+    - ${{ inputs.feedstock_name }}
     - ${{ inputs.token }}
     - ${{ inputs.version }}
     - ${{ inputs.hash }}
+    - ${{ inputs.fork_owner }}
+    - ${{ inputs.email_address }}
+    - ${{ inputs.fork_owner }}
+    - ${{ inputs.main_branch }}

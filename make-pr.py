@@ -5,8 +5,10 @@ token=sys.argv[1]
 origin=sys.argv[2]
 fork_owner=sys.argv[3]
 version=sys.argv[4]
-if len(sys.argv) == 6:
-    comment = sys.argv[5]
+target_branch=sys.argv[5]
+
+if len(sys.argv) == 7:
+    comment = sys.argv[6]
 else:
     comment = None
 
@@ -19,7 +21,7 @@ Auto-update version number to {version}
 title = f"[bot] Update to version {version}"
 
 
-pr = repo.create_pull(title, body, "master", f'{fork_owner}:{version}', True)
+pr = repo.create_pull(title, body, target_branch, f'{fork_owner}:{version}', True)
 
 if comment is not None:
     pr.as_issue().create_comment(comment)
