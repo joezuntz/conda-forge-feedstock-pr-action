@@ -9,6 +9,7 @@ hash=$4
 fork_owner=$5
 email_address=$6
 branch=$7
+automerge=$8
 
 # clone the fork feedstock
 git clone https://github.com/${fork_owner}/${feedstock_name}-feedstock
@@ -37,4 +38,4 @@ fork_url="https://${token}@github.com/${fork_owner}/${feedstock_name}-feedstock.
 git push --set-upstream ${fork_url} ${version}
 
 # create a pull request on origin feedstock, from user's fork
-python /make-pr.py ${token} conda-forge/${feedstock_name}-feedstock ${fork_owner} ${version} ${branch} "@conda-forge-admin please rerender"
+python /make-pr.py ${token} conda-forge/${feedstock_name}-feedstock ${fork_owner} ${version} ${branch} ${automerge} "@conda-forge-admin please rerender"

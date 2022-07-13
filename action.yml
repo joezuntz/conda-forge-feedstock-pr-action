@@ -24,6 +24,10 @@ inputs:
     description: 'Name of the branch to which to push'
     required: false
     default: "main"
+  automerge:
+    description: 'Whether to set the "automerge" label so that conda forge will merge automatically once tests pass'
+    required: false
+    default: true
 
 outputs: {}
 runs:
@@ -37,3 +41,4 @@ runs:
     - ${{ inputs.fork_owner }}
     - ${{ inputs.email_address }}
     - ${{ inputs.branch_name }}
+    - ${{ inputs.automerge }}
