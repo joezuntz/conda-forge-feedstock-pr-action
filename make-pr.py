@@ -22,6 +22,7 @@ title = f"[bot] Update to version {version}"
 
 
 pr = repo.create_pull(title, body, target_branch, f'{fork_owner}:{version}', True)
-
+issue = pr.as_issue()
+issue.set_labels("automerge")
 if comment is not None:
-    pr.as_issue().create_comment(comment)
+    issue.create_comment(comment)
