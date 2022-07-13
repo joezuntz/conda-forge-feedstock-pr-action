@@ -62,3 +62,9 @@ jobs:
         # so I don't know if there are some still called that.
         # You can leave this out and it will default to "main"
         # branch_name: main
+        # By default the feedstock pull request will be given the "automerge" label,
+        # which tells a conda-forge bot to merge your PR automatically once all the
+        # tests pass.  If you don't want that to happen, e.g. because you want to
+        # manually look at test results, then you can uncomment this parameter:
+        # automerge: false
+
