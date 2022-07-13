@@ -3,8 +3,7 @@
 A Github action to create a pull request on a conda forge feedstock, for example
 after uploading to PyPI.
 
-I can only really support this for users from my organizations (DESC and DES), but I'd welcome
-PRs from elsewhere.
+Contributions welcome!
 
 Instructions below, which assume that you have already:
 - created a PyPI project
