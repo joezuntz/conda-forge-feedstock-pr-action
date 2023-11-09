@@ -2,7 +2,7 @@
 FROM python:3.10.2
 MAINTAINER joezuntz@googlemail.com
 
-RUN pip install pygithub@1.59.1
+RUN pip install pygithub==1.59.1
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
